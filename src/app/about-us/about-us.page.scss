@@ -1,0 +1,27 @@
+.custom-card-image{
+    max-width:350px;
+    margin:auto;
+    background:#fefefe;
+    color:black;
+    border-radius:10px;
+}
+.custom-card{
+    
+    margin:5px;
+    background:#fefefe;
+    color:black;
+    border-radius:10px;
+}
+.chapter-heading{
+    font-style: bold;
+    color:black;
+    cursor: pointer;
+     
+}
+.chapter-heading:hover{
+    background:linear-gradient(grey,blue);
+    color:white;
+    cursor: pointer;
+    border-radius:10px;
+}
+  

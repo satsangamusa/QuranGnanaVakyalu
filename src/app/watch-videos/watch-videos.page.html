@@ -1,0 +1,44 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+      <img src="assets/img/devudimudra.png" height="50">
+    </ion-buttons>
+    <ion-title class="ion-text-center" style="font-size:15px"><b>అంతిమ దైవగ్రంథములో<br>వజ్ర వాక్యములు</b></ion-title>
+    <ion-buttons slot="end">
+        <img src="assets/img/kiss.png" height="50">
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-content-color">
+  <ion-grid [style.color]='this.globaldata.fontColor' [style.background-color]='this.globaldata.bgColor' [ngStyle]="{'font-size':this.globaldata.fontSize+'px'}">
+
+     
+    <ion-row *ngFor="let video of videos">
+      <ion-col ></ion-col>
+      <ion-col class="custom-card-image viditem">
+
+        
+          <a class="vid-img-container" (click)="openWisdomVideo(video.id)">
+                          <img class="playimg" src="/assets/img/playbutton.png">
+            
+                          <img class="vidimg" src="{{video.imageUrl}}">
+                      </a>
+
+       
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+
+
+
+
+  </ion-grid>
+</ion-content>

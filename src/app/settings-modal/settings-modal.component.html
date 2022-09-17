@@ -1,0 +1,123 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+      <img src="assets/img/devudimudra.png" height="50">
+    </ion-buttons>
+    <ion-title class="ion-text-center" style="font-size:15px"><b>అంతిమ దైవగ్రంథములో<br>వజ్ర వాక్యములు</b></ion-title>
+    <ion-buttons slot="end">
+        <img src="assets/img/kiss.png" height="50">
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-content-color">
+  <ion-row>
+    <ion-col text-center style="font-size:25px;text-align: center;"><b>అక్షర ఆకార అమరికలు</b>&nbsp;
+      <ion-icon (click)="closeModal()" style="text-align:end;font-size:25px;margin:auto" name="close">Close</ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card class="custom-card">
+        <ion-card-header>
+          <ion-row>
+            <ion-col>
+              <span><b>అక్షర ఆకారము</b></span>
+            </ion-col>
+          </ion-row>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row>
+            <ion-col  [ngStyle]="{'font-size':this.globaldata.fontSize+'px'}">
+              <span [style.color]='this.globaldata.fontColor' [style.background-color]="this.globaldata.bgColor">అల్లాహ్</span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col style="font-size:20px">
+              <ion-icon name="remove-circle-outline" (click)="reduceFont()"></ion-icon>&nbsp;&nbsp;
+              <ion-icon name="add-circle-outline" (click)="increaseFont()"></ion-icon>
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row>
+            <ion-col> అక్షర ఆకారము మార్చండి: </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-range min="15" max="50" step="1" type="number" (ionChange)="setGlobalText()" [(ngModel)]="textSize"> </ion-range>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col> వెనుక రంగులు రంగులు మార్చండి:      </ion-col>
+             
+          </ion-row>
+          
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-range min="0" max="255" step="1" type="number" (ionChange)="applyColors()" [(ngModel)]="red"> </ion-range>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-range min="0" max="255" step="1" type="number" (ionChange)="applyColors()" [(ngModel)]="green"> </ion-range>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-range min="0" max="255" step="1" type="number" (ionChange)="applyColors()" [(ngModel)]="blue"> </ion-range>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col> <span>అక్షరము రంగులు</span> </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-range min="0" max="255" step="1" type="number" (ionChange)="applyColors()" [(ngModel)]="fontRed"> </ion-range>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-range min="0" max="255" step="1" type="number" (ionChange)="applyColors()" [(ngModel)]="fontGreen"> </ion-range>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-range min="0" max="255" step="1" type="number" (ionChange)="applyColors()" [(ngModel)]="fontBlue"> </ion-range>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col> <button class="blue" (click)="setDefaultColors()">మొదటి అమరికలు</button> </ion-col>
+          </ion-row>
+          
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+  </ion-row>
+</ion-content>
+
+
+ 
+    

@@ -1,0 +1,72 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+      <ion-buttons slot="start">
+        <img src="assets/img/devudimudra.png" height="50">
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title class="ion-text-center" style="font-size:15px"><b>అంతిమ దైవగ్రంథములో<br>జ్ఞాన వాక్యములు</b></ion-title>
+    <ion-buttons slot="end">
+        <img src="assets/img/kiss.png" height="50">
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content class="ion-content-color">
+
+  <ion-grid >
+       
+      
+      <ion-row>
+        <ion-col class="ion-text-center" >
+          
+            <span class="align-icon" style="font-size:30px;" *ngIf="this.globaldata.currentTatvam>0" (click)="this.globaldata.currentTatvam=this.globaldata.currentTatvam-1" >☜</span>
+    
+             
+            &nbsp; <b><span style="font-size:20px"> జ్ఞాన వాక్య వివరము</span></b>&nbsp;
+            <ion-icon name="settings-outline" (click)="presentModal()" class="align-icon"></ion-icon>
+            &nbsp;
+            <span class="align-icon" style="font-size:30px;" *ngIf="this.globaldata.currentTatvam<131" (click)="this.globaldata.currentTatvam=this.globaldata.currentTatvam+1" >☞</span>
+            
+        </ion-col>
+      </ion-row>
+    
+
+    <ion-row>
+       
+      <ion-col class="ion-text-center"  [style.color]='this.globaldata.fontColor' [ngStyle]="{'font-size':this.globaldata.fontSize+'px'}">
+        <b>
+                <span  [innerHTML]="globaldata.tatvalu[globaldata.currentTatvam].sura | safe:'html'"> </span>  
+    
+              </b>
+      </ion-col>
+       
+    </ion-row>
+    
+    <ion-card class="custom-card-summary" [style.color]='this.globaldata.fontColor' [style.background-color]='this.globaldata.bgColor' [ngStyle]="{'font-size':this.globaldata.fontSize+'px'}">
+      <ion-row>
+        <ion-col>
+          <span [innerHTML]="globaldata.tatvalu[globaldata.currentTatvam].explanation | safe:'html'"> </span>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    
+
+    <ion-row>
+      <ion-col class="ion-text-right" >
+          <span class="align-icon" style="font-size:30px;margin-right:8px;color:gold;" 
+          *ngIf="this.globaldata.currentTatvam<109" 
+          (click)="goToTop()" >☞</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

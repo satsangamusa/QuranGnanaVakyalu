@@ -1,0 +1,80 @@
+.custom-card{
+    max-width:400px;
+    margin:0 auto;
+     
+    background:#fefefe;
+    color:black;
+    border-radius:10px;
+  }
+
+  .chapter-heading{
+    font-size:18px;
+  }
+   
+  .container2
+  {
+    background-size: auto, 25vmax;
+    background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('/includes/images/back.png');
+  }
+  .viditem
+  {
+    
+    max-width:23vmax;
+    padding:0.25vmax;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    line-height:100%;
+    font-family: 'Mandali', sans-serif;
+    font-weight: bold;
+    font-size: calc(1em + 0.5vw);
+
+    margin:15px 0;
+  }
+  .vid-img-container
+  {
+    max-width:500px;
+    min-width:350px;
+    position:relative;
+    display: block;
+    text-decoration: none;
+    transition:0.3s;
+    filter:drop-shadow(0 0 1px black);
+  }
+  .vid-img-container img
+  {
+    width:100%;
+    display: block;
+    transition: 0.3s;
+  }
+  .playimg
+  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    visibility: hidden;
+    filter: opacity(0%);
+  }
+  .vidimg
+  {
+    filter:grayscale(0%);
+    border:2px double #2F44B9;
+    border-radius: 15px;
+    width:400px;
+  }
+  .vid-img-container:hover .playimg
+  {
+    visibility:visible;
+    filter:opacity(100%);
+    transform:scale(0.65);
+  }
+  .vid-img-container:hover .vidimg
+  {
+    filter:grayscale(100%);
+    transform: scale(0.9);
+  }
+
+   
