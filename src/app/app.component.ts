@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { GlobalService } from 'src/app/global.service';
 import { Routes, Router } from '@angular/router';
+import { SplashScreen } from '@capacitor/splash-screen';
+import { StatusBar } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-root',
@@ -830,17 +830,19 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     public router:Router,
-    private splashScreen: SplashScreen,
     public globaldata: GlobalService,
-    private statusBar: StatusBar
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+    this.platform.ready().then(async () => {
+      document.body.setAttribute('data-theme', 'light');
+      document.body.classList.toggle('dark', false);
+      await SplashScreen.show({
+        showDuration: 6000,
+        autoHide: true,
+      });
     });
   }
   sh: any = 0;

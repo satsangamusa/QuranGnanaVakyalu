@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+import { Browser } from '@capacitor/browser';
 import { GlobalService } from 'src/app/global.service';
 @Component({ 
   selector: 'app-watch-videos',
@@ -8,16 +8,15 @@ import { GlobalService } from 'src/app/global.service';
 })
 export class WatchVideosPage implements OnInit {
 
-  constructor(public globaldata:GlobalService,
-    public youtube:YoutubeVideoPlayer ) { }
+  constructor(public globaldata:GlobalService ) { }
 
   ngOnInit() {
   }
   openWisdomVideo(id){
-    this.youtube.openVideo(id);
+    console.log(id)
+    const link = 'https://www.youtube.com/watch?v='+id;
+    Browser.open({url:link});
   }
-   
-  
      
   videos: any = [
     {

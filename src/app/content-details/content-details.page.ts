@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { GlobalService } from 'src/app/global.service';
 import { SettingsModalComponent } from 'src/app/settings-modal/settings-modal.component';
 import { ModalController, IonContent } from '@ionic/angular';
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 
 @Component({
   selector: 'app-content-details',
@@ -12,7 +11,6 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 export class ContentDetailsPage implements OnInit {
   @ViewChild(IonContent) content: IonContent;
   constructor(public modalController:ModalController,
-    public youtube:YoutubeVideoPlayer,
     public globaldata:GlobalService) { }
 
   ngOnInit() {
@@ -40,7 +38,7 @@ export class ContentDetailsPage implements OnInit {
     }
   }*/
   openWisdomVideo(id){
-    this.youtube.openVideo(id);
+     console.log(id);
   }
   goToTop() {
     this.content.scrollToTop(0);
