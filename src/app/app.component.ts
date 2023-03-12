@@ -840,7 +840,7 @@ export class AppComponent implements OnInit {
       document.body.setAttribute('data-theme', 'light');
       document.body.classList.toggle('dark', false);
       await SplashScreen.show({
-        showDuration: 6000,
+        showDuration: 2000,
         autoHide: true,
       });
     });
