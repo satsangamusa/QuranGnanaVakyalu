@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonSlides,Platform, ModalController } from '@ionic/angular';
+import { IonicSlides,Platform, ModalController } from '@ionic/angular';
 import { GlobalService } from 'src/app/global.service';
 import { SettingsModalComponent } from '../settings-modal/settings-modal.component';
 @Component({

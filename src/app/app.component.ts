@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { GlobalService } from 'src/app/global.service';
-import { Routes, Router } from '@angular/router';
+import { Routes, Router, UrlTree } from '@angular/router';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { StatusBar } from '@capacitor/status-bar';
 
@@ -150,12 +150,12 @@ export class AppComponent implements OnInit {
         {
 
           idx: 16,
-          padyam: `23. పునర్జన్మలు పునర్మరణములు కలవు`
+          padyam: `23. పునర్జన్మలు - పునర్మరణములు కలవు`
         },
         {
 
           idx: 17,
-          padyam: `24. 'ధర్మస్థాపనకు రక్తపాతమును సృష్టించేవారు వద్దన్నారు ”  దేవదూతలు`
+          padyam: `24. "ధర్మస్థాపనకు రక్తపాతమును సృష్టించేవారు వద్దన్నారు ”  దేవదూతలు`
         },
         {
           idx: 18,
@@ -164,7 +164,7 @@ export class AppComponent implements OnInit {
         {
 
           idx: 19,
-          padyam: `26. దేవుడు అవతరిస్తాడు ఇబ్లీసు మాత్రమే సాష్టాంగ పడడు`
+          padyam: `26. దేవుడు అవతరిస్తాడు - ఇబ్లీసు మాత్రమే సాష్టాంగ పడడు`
         },
         {
 
@@ -201,7 +201,7 @@ export class AppComponent implements OnInit {
         {
 
           idx: 26,
-          padyam: `34. కునుకు నిద్రలేనివాడు , నినుస్త ఆధారుడు సమస్తజ్ఞానమునకు అధిపతి , ఆయన సర్వవ్యాపి`
+          padyam: `34. కునుకు నిద్రలేనివాడు , సమస్త ఆధారుడు సమస్తజ్ఞానమునకు అధిపతి , ఆయన సర్వవ్యాపి`
         },
         {
 
@@ -273,7 +273,7 @@ export class AppComponent implements OnInit {
         {
 
           idx: 37,
-          padyam: `49. చావు పుట్టుకలు ఆయన చేతిలోనివే మరణించిన వానిని తిరిగి పుట్టించేదీ ఆయనే !`
+          padyam: `49. చావు, పుట్టుకలు ఆయన చేతిలోనివే మరణించిన వానిని తిరిగి పుట్టించేదీ ఆయనే !`
         },
         {
 
@@ -311,7 +311,7 @@ export class AppComponent implements OnInit {
         {
 
           idx: 42,
-          padyam: `57. జిబ్రయేల్ దూతకాదు , ఆయన “ నమ్మదగిన ఆత్మ ”`
+          padyam: `57. జిబ్రయేల్ దూతకాదు , ఆయన “నమ్మదగిన ఆత్మ”`
         },
         {
 
@@ -573,7 +573,7 @@ export class AppComponent implements OnInit {
         },
         {
           idx: 74,
-          padyam: `113. జ్ఞానం , మార్గదర్శక జ్యోతి , గ్రంథజ్ఞానం అతివాదులకు గిట్టదు`,
+          padyam: `113. జ్ఞానం , మార్గదర్శక జ్యోతి , గ్రంథజ్ఞానం - అతివాదులకు గిట్టదు`,
         },
         {
           idx: 75,
@@ -641,7 +641,7 @@ export class AppComponent implements OnInit {
         },
         {
           idx: 89,
-          padyam: `130. భూమ్యాకాశములు సమస్తం ఎరిగినవాడు అల్లాహ్ యే !`,
+          padyam: `130. భూమ్యాకాశములు సమస్తం ఎరిగినవాడు అల్లాహ్&zwj;యే !`,
         }, 
         {
           idx: 90,
@@ -650,7 +650,7 @@ export class AppComponent implements OnInit {
         , 
         {
           idx: 91,
-          padyam: `132.దేవునివద్దనుండి స్పష్టమైన నిదర్శనం వచ్చేసింది ! ( బుర్ హాన్ ) `,
+          padyam: `132.దేవునివద్దనుండి స్పష్ఠమైన నిదర్శనం వచ్చేసింది ! ( బుర్ హాన్ ) `,
         } 
         , 
         {
@@ -686,7 +686,7 @@ export class AppComponent implements OnInit {
         }, 
         {
           idx: 97,
-          padyam: `140. ప్రళయ విషయజ్ఞానం నా ప్రభువు వద్దనే ఉన్నది  `,
+          padyam: `140. ప్రళయ విషయజ్ఞానం నాప్రభువు వద్దనే ఉన్నది  `,
         } 
         , 
         {
@@ -727,11 +727,11 @@ export class AppComponent implements OnInit {
         , 
         {
           idx: 105,
-          padyam: `149. సైతాను నియమిస్తాము . వాడే సన్మార్గము పోకుండా అడ్డుకుంటాడు`,
+          padyam: `149. సైతాన్&zwj;ను నియమిస్తాము . వాడే సన్మార్గము పోకుండా అడ్డుకుంటాడు`,
         } , 
         {
           idx: 105,
-          padyam: `150. ఆహారములో ధర్మసమ్మతము , పవిత్రము - అపవిత్రము నిషేధాలా`,
+          padyam: `150. ఆహారములో ధర్మసమ్మతము , పవిత్రము - అపవిత్రము నిషేధాలా?`,
         } 
         , 
         {
@@ -767,7 +767,7 @@ export class AppComponent implements OnInit {
         , 
         {
           idx: 112,
-          padyam: `158. కపటులను - ముఫ్రిక్కులను మట్టుబెట్టండి`,
+          padyam: `158. కపటులను - ముష్రిక్కులను  మట్టుబెట్టండి`,
         } , 
         {
           idx: 112,
@@ -821,6 +821,12 @@ export class AppComponent implements OnInit {
       url: '/watch-videos',
       icon: 'tv',
       sub: null
+    },
+    {
+      title: 'పాటలు',
+      url: '/songs',
+      icon: 'tv',
+      sub: null
     }
      
      
@@ -850,7 +856,7 @@ export class AppComponent implements OnInit {
   mainItem = 0;
   selectedItem = 0;
   subItem = 0;
-  goToChapter(page){
+  goToChapter(page: any){
     console.log(page);
     if(page.sub!=null){
       console.log('do nothing');

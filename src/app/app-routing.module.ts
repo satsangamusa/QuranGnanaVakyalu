@@ -36,6 +36,10 @@ const routes: Routes = [
   {
     path: 'kiss',
     loadChildren: () => import('./kiss/kiss.module').then( m => m.KISSPageModule)
+  },
+  {
+    path: 'songs',
+    loadChildren: () => import('./songs/songs.module').then( m => m.SongsPageModule)
   }
 
 ];

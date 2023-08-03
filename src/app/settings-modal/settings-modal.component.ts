@@ -29,7 +29,7 @@ export class SettingsModalComponent implements OnInit {
    this.globaldata.fontSize=this.globaldata.fontSize+1;
  }
  async closeModal() {
-   const modal = await this.modalController.getTop();
+   const modal:any = await this.modalController.getTop();
    modal.dismiss();
 }
  reduceFont(){
@@ -65,14 +65,14 @@ setDefaultColors () {
   this.fontBlue = 0;
   this.applyColors();
 };
-fullColorHex (r, g, b) {
+fullColorHex (r: number, g: number, b: number) {
   var red = this.rgbToHex(r);
   var green = this.rgbToHex(g);
   var blue = this.rgbToHex(b);
   return red + green + blue;
 };
 ;
- rgbToHex (rgb) {
+ rgbToHex (rgb: any) {
   var hex = Number(rgb).toString(16);
   if (hex.length < 2) {
       hex = "0" + hex;

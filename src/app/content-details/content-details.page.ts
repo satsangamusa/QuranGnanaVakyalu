@@ -9,7 +9,8 @@ import { ModalController, IonContent } from '@ionic/angular';
   styleUrls: ['./content-details.page.scss'],
 })
 export class ContentDetailsPage implements OnInit {
-  @ViewChild(IonContent) content: IonContent;
+  @ViewChild(IonContent)
+  content!: IonContent;
   constructor(public modalController:ModalController,
     public globaldata:GlobalService) { }
 
@@ -37,7 +38,7 @@ export class ContentDetailsPage implements OnInit {
       this.globaldata.currentTatvam=this.globaldata.currentTatvam+1;
     }
   }*/
-  openWisdomVideo(id){
+  openWisdomVideo(id: any){
      console.log(id);
   }
   goToTop() {
