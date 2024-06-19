@@ -1,36 +1,33 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
+      <ion-content [style.background-color]='this.global.bgColor'>
         <br><br><br>
-        <ion-row>
+        <ion-row style="font-family:NTR" [style.background-color]='this.global.bgColor'>
           <ion-col class="ion-text-center">
             <img src="assets/img/kiss.png" width="150">
           </ion-col>
         </ion-row>
-        <ion-row *ngFor="let m of appPages; let i = index">
-          <ion-col>
-              <ion-item  (click)="mainItem = i;selectedItem=-1;goToChapter(m);sm=sm==1?0:1" 
-              lines="none" detail="false"  [class.selected]="mainItem == i ">
-              <ion-icon [name]='m.icon' style="color:royalblue"></ion-icon>&nbsp;
-              
+        @for( m of appPages;track m; let i = $index){
+        <ion-row  style="font-family:NTR" [style.background-color]='this.global.bgColor' [style.color]='this.global.fontColor' [ngStyle]="{'font-size':this.global.fontSize+'px'}">
+          <ion-col (click)="mainItem = i;selectedItem=-1;goToChapter(m);sm=sm==1?0:1"
+          [class.selected]="mainItem == i ">
+              <ion-icon [name]='m.icon'></ion-icon>&nbsp;
               <ion-label><b>{{ m.title }}</b></ion-label>
-
-              </ion-item>
-              <div *ngIf="mainItem == i && sm==1" >
-                  <ion-row  *ngFor="let s of m.sub;let j = index">
-                      <ion-col style="margin-left:5px;">
-                          <ion-item  (click)="selectedItem = j;subItem=-1;goToChapter(s); sh=sh==1?0:1" 
-                          lines="none" detail="false"  [class.selected]="selectedItem == j && mainItem == i ">
-                          <ion-icon name='document-text'  style="color:royalblue"></ion-icon>&nbsp;  
-                          <ion-label ><b>{{ s.padyam }}</b></ion-label>
-                          </ion-item>
-
-                      </ion-col>
-                    </ion-row>
-                  </div>
+              @if(mainItem === i && sm===1){
+                @for(s of m.sub;track s;let j = $index){
+                  <ion-row>
+                    <ion-col style="margin-left:10px;" (click)="selectedItem = j;subItem=-1;goToChapter(s); sh=sh==1?0:1"
+                    [class.selected]="selectedItem == j && mainItem == i ">
+                        <ion-icon name='document-text'></ion-icon>&nbsp;
+                        <ion-label ><b>{{ s.padyam }}</b></ion-label>
+                    </ion-col>
+                  </ion-row>
+                }
+              }
           </ion-col>
         </ion-row>
+      }
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>

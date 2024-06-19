@@ -1,12 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
+import { IonButton, IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonMenu, IonMenuButton, IonMenuToggle, IonRow, IonSearchbar, IonTitle, IonToolbar, ModalController } from '@ionic/angular/standalone';
 import { GlobalService } from 'src/app/global.service';
-import { SettingsModalComponent } from 'src/app/settings-modal/settings-modal.component';
-import { ModalController } from '@ionic/angular';
+import { ContentPipe } from '../content-pipe';
+import { SettingsModalPage } from '../settings-modal/settings-modal.page';
 
 @Component({
   selector: 'app-introduction',
   templateUrl: './introduction.page.html',
   styleUrls: ['./introduction.page.scss'],
+  standalone: true,
+  providers:[ModalController],
+  imports:[ContentPipe, SettingsModalPage, IonCard, CommonModule,IonCol,IonIcon,IonHeader,IonMenuButton,IonMenu,IonMenuToggle,IonToolbar,IonTitle,IonButton,IonButtons,IonContent,IonRow,IonGrid,IonSearchbar,IonList,IonItem,IonLabel],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class IntroductionPage implements OnInit {
 
@@ -18,9 +24,9 @@ export class IntroductionPage implements OnInit {
 
   async presentModal() {
     const modal:HTMLIonModalElement = await this.modalController.create({
-      component: SettingsModalComponent
+      component: SettingsModalPage
     });
-    
+
     await modal.present();
-  } 
+  }
 }

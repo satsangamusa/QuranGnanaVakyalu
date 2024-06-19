@@ -1,37 +1,57 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Platform } from '@ionic/angular';
-import { GlobalService } from 'src/app/global.service';
-import { Routes, Router, UrlTree } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { SplashScreen } from '@capacitor/splash-screen';
-import { StatusBar } from '@capacitor/status-bar';
+import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterLink, IonRouterOutlet, IonSplitPane } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { addCircleOutline, archiveOutline, archiveSharp, book, bookmarkOutline, bookmarkSharp, caretBack, caretBackCircleOutline, caretForward, caretForwardCircleOutline, close, closeCircle, closeCircleSharp, closeOutline, documentSharp, documentText, heartOutline, heartSharp, home, information, list, mail, mailOpen, mailOutline, mailSharp, menu, mic, paperPlaneOutline, paperPlaneSharp, pencil, pencilOutline, pencilSharp, removeCircleOutline, search, settings, settingsOutline, shareSharp, shuffle, trashOutline, trashSharp, videocam, videocamSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { NetworkService } from 'src/app/network.service';
+import { GlobalService } from './global.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+  styleUrls: ['app.component.scss'],
+  standalone: true,
+  providers:[GlobalService],
+  imports: [RouterLink, RouterLinkActive, CommonModule, IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterLink, IonRouterOutlet],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent implements OnInit {
+  constructor(
+    public global:GlobalService,
+    public router:Router,
+    private networkService: NetworkService,) {
+      addIcons({ mailOutline,search,book,home,mail,mailOpen,pencil,pencilOutline,pencilSharp,settingsOutline,documentText,videocamSharp,shareSharp,information,caretBack,documentSharp,close,closeCircle,closeCircleSharp,closeOutline,removeCircleOutline,addCircleOutline,shuffle,settings,caretBackCircleOutline,caretForwardCircleOutline,caretForward,mic,videocam,menu, list,mailSharp, paperPlaneOutline, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, warningOutline, warningSharp, bookmarkOutline, bookmarkSharp });
+      this.initializeApp();
+  }
+
+  async initializeApp() {
+      await SplashScreen.show({
+        showDuration: 2000,
+        autoHide: true,
+      });
+  }
   public selectedIndex = 0;
   public appPages = [
     {
       title: 'రచయిత ముందుమాట',
       url: '/home',
-      icon: 'pencil',
+      icon: 'information',
       sub: null
-    }, 
+    },
     {
       title: 'ఉత్తరములు',
       url: '/introduction',
-      icon: 'pencil',
+      icon: 'mail-open',
       sub: null
-    }, 
+    },
     {
       title: 'KISS ముఖ్య ఉద్దేశ్యములు',
       url: '/kiss',
-      icon: 'pencil',
+      icon: 'information',
       sub: null
-    }, 
+    },
     {
       title: 'గ్రంథము వ్రాయుటకు ప్రేరణ',
       url: '/about-us',
@@ -642,173 +662,173 @@ export class AppComponent implements OnInit {
         {
           idx: 89,
           padyam: `130. భూమ్యాకాశములు సమస్తం ఎరిగినవాడు అల్లాహ్&zwj;యే !`,
-        }, 
+        },
         {
           idx: 90,
           padyam: `131. దేవుడే దైవదూతలలో , మానవులలో సందేశహరులుగా ఎంపిక చేసుకొంటాడు`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 91,
           padyam: `132.దేవునివద్దనుండి స్పష్ఠమైన నిదర్శనం వచ్చేసింది ! ( బుర్ హాన్ ) `,
-        } 
-        , 
+        }
+        ,
         {
           idx: 92,
           padyam: `133. పూర్వపు ప్రవక్తలూ ధిక్కారానికి గురైనారు`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 92,
           padyam: `134. దైవతిరస్కారుల పరిహాసమాటలకు దూరంగా ఉండు`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 93,
           padyam: `135. ఆయనే ఆద్యంతుడు . రహస్యము , బాహ్యము ఆయనే సర్వజ్ఞుడు . సర్వమునకూ అధిపతి`,
-        } , 
+        } ,
         {
           idx: 93,
           padyam: `136. భూమ్యాకాశముల సృజనకర్త`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 94,
           padyam: `137. రాత్రీపగళ్ళు , సూర్యచంద్రుల లెక్కల నిర్ధారణ`,
-        } , 
+        } ,
         {
           idx: 95,
           padyam: `138. దేవుడు “ అయిపో ” అంటే చాలు అయిపోతుంది`,
-        } , 
+        } ,
         {
           idx: 96,
           padyam: `139. భూమ్యాకాశాలను ఆరు రోజుల్లో సృష్టించాడు`,
-        }, 
+        },
         {
           idx: 97,
           padyam: `140. ప్రళయ విషయజ్ఞానం నాప్రభువు వద్దనే ఉన్నది  `,
-        } 
-        , 
+        }
+        ,
         {
           idx: 98,
           padyam: `141. మాశిక్ష అన్నివేళల్లో వచ్చిపడింది`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 99,
           padyam: `142. తొలిసారిగా పుట్టించినవాడే మళ్ళీ పుట్టిస్తాడు`,
-        } , 
+        } ,
         {
           idx: 100,
           padyam: `143. మీ పుట్టుక పూర్వోత్తరాలు ( అన్ని జన్మలూ ) నాకు తెలుసు `,
-        } 
-        , 
+        }
+        ,
         {
           idx: 100,
           padyam: `144. మిమ్మల్ని పుట్టించి , జీవితాన్నిచ్చి , బుద్ధిని ప్రసాదించాము `,
-        } , 
+        } ,
         {
           idx: 101,
           padyam: `145. అవిశ్వాసులు దైవదూతలకు ఆడవారి పేర్లను ఆపాదిస్తారు`,
-        } , 
+        } ,
         {
           idx: 102,
           padyam: `146. దేవునికి ఆడపిల్లలు - మీకు మగపిల్లలా`,
-        }, 
+        },
         {
           idx: 103,
           padyam: `147. సప్తాకాశములు , నిర్ణీతగడువు - చివరికి మావైపు గమ్యము మీరు మరచిపోయారు`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 104,
           padyam: `148. సప్తాకాశాలను ఒకదానిపై ఒకటి పేర్చాడు సూర్యచంద్రుల కాంతివంతం`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 105,
           padyam: `149. సైతాన్&zwj;ను నియమిస్తాము . వాడే సన్మార్గము పోకుండా అడ్డుకుంటాడు`,
-        } , 
+        } ,
         {
           idx: 105,
           padyam: `150. ఆహారములో ధర్మసమ్మతము , పవిత్రము - అపవిత్రము నిషేధాలా?`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 106,
           padyam: `151. ఏ ప్రవక్తనయినా తనజాతి భాషలో మాట్లాడేవానిగా పంపుతాము`,
-        } , 
+        } ,
         {
           idx: 107,
           padyam: `152. భూమ్యాకాశములలోనికి ఎక్కేది , దిగేది ఆయనకు తెలుసు`,
-        } , 
+        } ,
         {
           idx: 108,
           padyam: `153. ఆయన మీలోనుండే మీ భార్యలను పుట్టిస్తున్నాడు`,
-        }, 
+        },
         {
           idx: 109,
           padyam: `154. మెరుపు ద్వారా భయపెడుతాడు మృత భూమికి జీవము పోస్తాడు`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 109,
           padyam: `155. మేము ప్రాణనాళముకంటే దగ్గరగాయున్నాము`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 110,
           padyam: `156. మానవుల ఉపాధి నిమిత్తం మృత ప్రదేశానికి జీవం పోశాం`,
-        } , 
+        } ,
         {
           idx: 111,
           padyam: `157. ఒక ప్రాణి ( వ్యక్తి ) రక్షణే - సర్వ ప్రాణి ( సమాజ ) రక్షణ ఒక ప్రాణి హత్య - సర్వసమాజ హత్య`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 112,
           padyam: `158. కపటులను - ముష్రిక్కులను  మట్టుబెట్టండి`,
-        } , 
+        } ,
         {
           idx: 112,
           padyam: `159. శరణుకోరినవానికి ఆశ్రయం ఇవ్వు`,
-        } , 
+        } ,
         {
           idx: 112,
           padyam: `160. నచ్చినా , నచ్చకపోయినా యుద్ధము మీకు విధి చేయబడింది`,
-        }, 
+        },
         {
           idx: 112,
           padyam: `161. దేవునిమార్గములో దేవునికంటే ప్రియమైనవి లేవు`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 112,
           padyam: `162. ధర్మయుద్ధం - ప్రజ్ఞావచనముల పరీక్ష`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 112,
           padyam: `163. పరీక్ష నిమిత్తమే చావుబ్రతుకులను సృష్టించాడు`,
-        } , 
+        } ,
         {
           idx: 113,
           padyam: `164. దేవతలు స్త్రీలే . వారిని ఆశ్రయిస్తే సైతానునే ఆశ్రయించినట్టు`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 114,
           padyam: `165. ఈసా ( ఏసు ) ను చంపలేదు , శిలువపైకి ఎక్కించనూ లేదు`,
-        } , 
+        } ,
         {
           idx: 115,
           padyam: `166. ముస్లీమ్ - హిందువుల అనుబంధ ఫోటోలు`,
-        } , 
+        } ,
         {
           idx: 116,
           padyam: `167. మూసా అంటే ఎవరు ? తౌరాత్ అంటే ఏది ? అక్షయ ఆహారం అంటే ఏది ?`,
-        } 
-        , 
+        }
+        ,
         {
           idx: 117,
           padyam: `168. పరదా ( ముసుగు ) ఎప్పుడు వచ్చింది? పరదా దైవసంబంధమా?`,
@@ -819,38 +839,21 @@ export class AppComponent implements OnInit {
     {
       title: 'వీడియోలు',
       url: '/watch-videos',
-      icon: 'tv',
+      icon: 'videocam',
       sub: null
     },
     {
       title: 'పాటలు',
       url: '/songs',
-      icon: 'tv',
+      icon: 'videocam',
       sub: null
     }
-     
-     
+
+
 
   ];
 
-  constructor(
-    private platform: Platform,
-    public router:Router,
-    public globaldata: GlobalService,
-  ) {
-    this.initializeApp();
-  }
 
-  initializeApp() {
-    this.platform.ready().then(async () => {
-      document.body.setAttribute('data-theme', 'light');
-      document.body.classList.toggle('dark', false);
-      await SplashScreen.show({
-        showDuration: 2000,
-        autoHide: true,
-      });
-    });
-  }
   sh: any = 0;
   sm: any = 0;
   mainItem = 0;
@@ -862,13 +865,13 @@ export class AppComponent implements OnInit {
       console.log('do nothing');
     }else if(page.sub==null){
       if(page.url==undefined || page.url==null){
-      this.globaldata.currentTatvam=page.idx-1;
+      this.global.currentTatvam=page.idx-1;
 
         this.router.navigateByUrl('content-details');
       }else{
         this.router.navigateByUrl(page.url);
       }
-      
+
     }
   }
   ngOnInit() {

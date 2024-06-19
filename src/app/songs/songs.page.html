@@ -1,4 +1,3 @@
-
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -9,35 +8,48 @@
       </ion-menu-toggle>
       <img src="assets/img/devudimudra.png" height="50">
     </ion-buttons>
-    <ion-title class="ion-text-center" style="font-size:15px"><b>అంతిమ దైవగ్రంథములో<br>వజ్ర వాక్యములు</b></ion-title>
+    <ion-title class="ion-text-center" style="font-size:19px;font-family: mandali;"><b>అంతిమ దైవగ్రంథములో<br>జ్ఞాన వాక్యములు</b></ion-title>
     <ion-buttons slot="end">
-        <img src="assets/img/kiss.png" height="50">
-      </ion-buttons>
+      <img src="assets/img/kiss.png" height="50">
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-
-<ion-content class="ion-content-color">
-  <ion-grid [style.color]='this.globaldata.fontColor' [style.background-color]='this.globaldata.bgColor' [ngStyle]="{'font-size':this.globaldata.fontSize+'px'}">
-
-     
-    <ion-row *ngFor="let video of videos">
-      <ion-col ></ion-col>
-      <ion-col class="custom-card-image viditem">
-
-        
-          <a class="vid-img-container" (click)="openWisdomVideo(video.id)">
-                          <img class="playimg" src="/assets/img/playbutton.png">
-            
-                          <img class="vidimg" src="{{video.imageUrl}}">
-                      </a>
-
-       
+<ion-content>
+  <ion-grid [style.color]='this.globaldata.fontColor' [style.background-color]='this.globaldata.bgColor'
+  [ngStyle]="{'font-size':this.globaldata.fontSize+'px'}">
+    <br>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-searchbar  [debounce]="100" [(ngModel)]="this.gdSearchText" style="font-family:NTR"
+          (ngModelChange)="handleChange($event)"  show-clear-button="always"
+          placeholder="Search Song"></ion-searchbar>
+          <ion-list lines="none" *ngIf="filteredAudios?.length>0">
+            <ion-item *ngFor="let audio of filteredAudios"  lines="none" detail (click)="selectedAudio(audio)">
+              <ion-label><i>{{ audio.title }}</i></ion-label>
+            </ion-item>
+          </ion-list>
       </ion-col>
-      <ion-col></ion-col>
     </ion-row>
 
 
+          <ion-row>
+            <ion-col class="ion-text-center">
+              <span class="ion-text-wrap" style="font-size: 20px;font-family:NTR"><b>{{currentAudio?.title}}</b></span>
+            </ion-col>
+          </ion-row>
+          <ion-card>
+          <ion-row>
+            <ion-col  id="gdVideoId" style=" display: flex;justify-content: center;align-items: center;">
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-text-center"> <ion-icon aria-hidden="true"  [ios]="'caret-forward-circle-outline'" [md]="'caret-forward-circle-outline'" style="font-size: xx-large;" (click)="veryFirst()" ></ion-icon> </ion-col>
+            <ion-col class="ion-text-center"> <ion-icon aria-hidden="true"  [ios]="'caret-forward'" [md]="'caret-forward'"  (click)="first(currentAudio)" style="font-size: xx-large;" ></ion-icon></ion-col>
+            <ion-col class="ion-text-center"> <ion-icon aria-hidden="true" [ios]="'shuffle'" [md]="'shuffle'"  (click)="shuffle()" style="font-size: xx-large;" ></ion-icon></ion-col>
+            <ion-col class="ion-text-center"><ion-icon aria-hidden="true" [ios]="'caret-back'" [md]="'caret-back'" (click)="last(currentAudio)" style="font-size: xx-large;" ></ion-icon></ion-col>
+            <ion-col class="ion-text-center"><ion-icon aria-hidden="true"  [ios]="'caret-back-circle-outline'" [md]="'caret-back-circle-outline'"   (click)="veryLast()" style="font-size: xx-large;" ></ion-icon></ion-col>
+          </ion-row>
+        </ion-card>
 
 
   </ion-grid>

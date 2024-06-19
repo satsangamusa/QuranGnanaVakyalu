@@ -1,7 +1,7 @@
 {
-  "name": "జ్ఞాన వాక్యాలు",
+  "name": "QuranGnanaVakyalu",
   "integrations": {
     "capacitor": {}
   },
-  "type": "angular"
+  "type": "angular-standalone"
 }
