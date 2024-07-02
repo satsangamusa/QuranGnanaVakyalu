@@ -26,20 +26,30 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 @font-face {
-    font-family: Mandali;
-    src: url("assets/fonts/Mandali-Regular.otf") format("opentype");
+  font-family: Mandali;
+  src: url("assets/fonts/Mandali-Regular.otf") format("opentype");
 }
 
 @font-face {
-    font-family: NTR;
-    src: url("assets/fonts/NTR.ttf") format("opentype");
+  font-family: NTR;
+  src: url("assets/fonts/NTR.ttf") format("opentype");
 }
 
 @font-face {
-    font-family: ponnala;
-    src: url("assets/fonts/ponnala.ttf") format("opentype");
+  font-family: ponnala;
+  src: url("assets/fonts/ponnala.ttf") format("opentype");
 }
 
+@font-face {
+font-family: potti-sriramulu;
+src: url("assets/fonts/Potti_Sreeramulu_Regular.otf");
+}
+
+
+i {
+font-family: potti-sriramulu;
+font-weight: bold;
+}
 
 
 * {
@@ -284,8 +294,4 @@ ion-card{
     height: auto;
     max-height: 100%;
   }
-  i {
-    font-family: NTR;
-    font-weight: bold;
-  }
-
+ 
