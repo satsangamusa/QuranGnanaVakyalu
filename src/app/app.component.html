@@ -17,7 +17,7 @@
               @if(mainItem === i && sm===1){
                 @for(s of m.sub;track s;let j = $index){
                   <ion-row>
-                    <ion-col style="margin-left:10px;" (click)="selectedItem = j;subItem=-1;goToChapter(s); sh=sh==1?0:1"
+                    <ion-col style="margin-left:10px;font-family:potti-sriramulu;text-wrap:wrap;word-wrap:normal" (click)="selectedItem = j;subItem=-1;goToChapter(s); sh=sh==1?0:1"
                     [class.selected]="selectedItem == j && mainItem == i ">
                         <ion-icon name='document-text'></ion-icon>&nbsp;
                         <ion-label ><b>{{ s.padyam }}</b></ion-label>

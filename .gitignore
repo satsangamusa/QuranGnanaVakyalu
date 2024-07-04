@@ -8,7 +8,6 @@ karma.conf.js
 platforms
 resources
 e2e
-android
 ios
 .angular
 
